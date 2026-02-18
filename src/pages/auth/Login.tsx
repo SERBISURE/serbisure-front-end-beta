@@ -24,6 +24,7 @@ const Login: React.FC = () => {
                 // Redirect based on role
                 if (match.role === 'admin') navigate('/admin');
                 else if (match.role === 'worker') navigate('/worker/profile');
+                else if (match.role === 'employee') navigate('/employee');
                 else navigate('/employer/search');
             } else {
                 alert('Invalid email or password.');

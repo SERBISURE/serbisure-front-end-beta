@@ -41,6 +41,11 @@ const Sidebar: React.FC = () => {
                     { to: '/employer/jobs', icon: Briefcase, label: 'My Job Postings' },
                     { to: '/messages', icon: MessageSquare, label: 'Messages' },
                 ];
+            case 'employee':
+                return [
+                    { to: '/employee', icon: LayoutDashboard, label: 'Dashboard' },
+                    { to: '/employee/verification', icon: FileCheck, label: 'Verification Queue' },
+                ];
             default:
                 return [];
         }
@@ -67,7 +72,7 @@ const Sidebar: React.FC = () => {
                                 key={link.to}
                                 to={link.to}
                                 end={link.to.split('/').length === 2}
-                                className={({ isActive }) => clsx(
+                                className={({ isActive }: { isActive: boolean }) => clsx(
                                     'flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors',
                                     isActive
                                         ? 'bg-primary-50 text-primary-700'
@@ -86,7 +91,7 @@ const Sidebar: React.FC = () => {
                     <nav className="space-y-1">
                         <NavLink
                             to="/report-incident"
-                            className={({ isActive }) => clsx(
+                            className={({ isActive }: { isActive: boolean }) => clsx(
                                 'w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors text-left',
                                 isActive ? 'bg-rose-50 text-rose-700' : 'text-rose-600 hover:bg-rose-50'
                             )}
@@ -96,7 +101,7 @@ const Sidebar: React.FC = () => {
                         </NavLink>
                         <NavLink
                             to="/terms"
-                            className={({ isActive }) => clsx(
+                            className={({ isActive }: { isActive: boolean }) => clsx(
                                 'flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors',
                                 isActive
                                     ? 'bg-primary-50 text-primary-700'

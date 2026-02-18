@@ -21,6 +21,10 @@ import WorkerDocuments from './pages/worker/Documents';
 import EmployerSearch from './pages/employer/Search';
 import EmployerJobs from './pages/employer/JobPostings';
 
+// Employee
+import EmployeeDashboard from './pages/employee/Dashboard';
+import VerificationQueue from './pages/employee/VerificationQueue';
+
 // Shared
 import Messages from './pages/shared/Messages';
 import ReportIncident from './pages/shared/ReportIncident';
@@ -51,6 +55,12 @@ function App() {
                         <Route element={<ProtectedRoute allowedRoles={['employer']} />}>
                             <Route path="/employer/search" element={<EmployerSearch />} />
                             <Route path="/employer/jobs" element={<EmployerJobs />} />
+                        </Route>
+
+                        {/* Employee Routes */}
+                        <Route element={<ProtectedRoute allowedRoles={['employee']} />}>
+                            <Route path="/employee" element={<EmployeeDashboard />} />
+                            <Route path="/employee/verification" element={<VerificationQueue />} />
                         </Route>
 
                         {/* Shared Routes */}
